@@ -280,4 +280,5 @@ For project evaluations, viva questions, or technical inquiries:
 ---
 &copy; 2026 Room Finder. All rights reserved.
 #   r o o m f i n d e r  
+ #   r o o m f i n d e r  
  
