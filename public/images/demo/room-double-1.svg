@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#eef2ff"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background Wall & Floor -->
+  <rect width="800" height="400" fill="url(#bgGrad)"/>
+  <rect y="400" width="800" height="100" fill="#94a3b8"/>
+  <line x1="0" y1="400" x2="800" y2="400" stroke="#64748b" stroke-width="4"/>
+
+  <!-- Interior Elements -->
+  
+      <!-- Window with curtains -->
+      <rect x="520" y="70" width="180" height="200" rx="8" fill="#e0f2fe" stroke="#cbd5e1" stroke-width="4"/>
+      <line x1="610" y1="70" x2="610" y2="270" stroke="#94a3b8" stroke-width="3"/>
+      <line x1="520" y1="170" x2="700" y2="170" stroke="#94a3b8" stroke-width="3"/>
+      <path d="M500 60 Q520 180 500 280 L520 280 L520 60 Z" fill="#10b981" opacity="0.85"/>
+      <path d="M720 60 Q700 180 720 280 L700 280 L700 60 Z" fill="#10b981" opacity="0.85"/>
+
+      <!-- Wall Art / Poster -->
+      <rect x="180" y="80" width="120" height="80" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+      <circle cx="240" cy="115" r="20" fill="#fde047"/>
+      <polygon points="195,150 225,120 250,145 285,110 300,150" fill="#3730a3" opacity="0.7"/>
+
+      <!-- Bed Headboard & Frame -->
+      <rect x="100" y="240" width="280" height="150" rx="10" fill="#78350f"/>
+      <!-- Mattress & Bed Sheet -->
+      <rect x="110" y="270" width="290" height="130" rx="8" fill="#f8fafc"/>
+      <!-- Duvet / Blanket -->
+      <rect x="200" y="270" width="200" height="130" rx="6" fill="#3730a3"/>
+      <!-- Pillows -->
+      <rect x="125" y="250" width="60" height="40" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+      <rect x="125" y="295" width="60" height="40" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+
+      <!-- Bedside Table & Lamp -->
+      <rect x="50" y="320" width="45" height="70" rx="4" fill="#92400e"/>
+      <rect x="62" y="290" width="20" height="30" fill="#cbd5e1"/>
+      <polygon points="52,290 92,290 82,260 62,260" fill="#fbbf24"/>
+      <circle cx="72" cy="275" r="10" fill="#fef08a" opacity="0.6"/>
+
+      <!-- Study Desk on Right -->
+      <rect x="520" y="310" width="180" height="18" rx="3" fill="#78350f"/>
+      <rect x="535" y="328" width="12" height="90" fill="#451a03"/>
+      <rect x="670" y="328" width="12" height="90" fill="#451a03"/>
+      <!-- Laptop on Desk -->
+      <rect x="575" y="285" width="45" height="25" rx="3" fill="#334155"/>
+      <rect x="565" y="307" width="65" height="4" rx="2" fill="#64748b"/>
+    
+
+  <!-- Top Title Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="30" width="360" height="70" rx="12" fill="#0f242a" opacity="0.9"/>
+    <rect x="40" y="30" width="8" height="70" rx="4" fill="#10b981"/>
+    <text x="65" y="60" fill="#ffffff" font-size="20" font-weight="700" font-family="'Segoe UI', -apple-system, sans-serif">Double Sharing Room</text>
+    <text x="65" y="82" fill="#94a3b8" font-size="13" font-family="'Segoe UI', -apple-system, sans-serif">Twin beds, tables & lockers</text>
+  </g>
+
+  <!-- Tag Pill -->
+  <g>
+    <rect x="650" y="30" width="110" height="34" rx="17" fill="#3730a3"/>
+    <text x="705" y="52" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700" font-family="'Segoe UI', sans-serif">DOUBLE</text>
+  </g>
+</svg>

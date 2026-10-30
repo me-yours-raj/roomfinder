@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f9fafb"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background Wall & Floor -->
+  <rect width="800" height="400" fill="url(#bgGrad)"/>
+  <rect y="400" width="800" height="100" fill="#94a3b8"/>
+  <line x1="0" y1="400" x2="800" y2="400" stroke="#64748b" stroke-width="4"/>
+
+  <!-- Interior Elements -->
+  
+      <!-- Kitchen Cabinets Top -->
+      <rect x="100" y="60" width="600" height="90" rx="6" fill="#334155" stroke="#1e293b" stroke-width="3"/>
+      <line x1="250" y1="60" x2="250" y2="150" stroke="#1e293b" stroke-width="2"/>
+      <line x1="400" y1="60" x2="400" y2="150" stroke="#1e293b" stroke-width="2"/>
+      <line x1="550" y1="60" x2="550" y2="150" stroke="#1e293b" stroke-width="2"/>
+
+      <!-- Kitchen Countertop -->
+      <rect x="80" y="260" width="640" height="25" rx="3" fill="#0f172a"/>
+      <rect x="100" y="285" width="600" height="135" fill="#1f2937"/>
+
+      <!-- Chimney & Stove -->
+      <polygon points="340,150 460,150 490,210 310,210" fill="#64748b"/>
+      <rect x="360" y="245" width="80" height="15" rx="3" fill="#334155"/>
+      <circle cx="385" cy="252" r="6" fill="#ef4444"/>
+      <circle cx="415" cy="252" r="6" fill="#ef4444"/>
+
+      <!-- Refrigerator (Right) -->
+      <rect x="570" y="170" width="110" height="245" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="3"/>
+      <line x1="570" y1="260" x2="680" y2="260" stroke="#94a3b8" stroke-width="3"/>
+      <rect x="580" y="210" width="8" height="35" rx="2" fill="#64748b"/>
+      <rect x="580" y="280" width="8" height="45" rx="2" fill="#64748b"/>
+    
+
+  <!-- Top Title Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="30" width="360" height="70" rx="12" fill="#0f242a" opacity="0.9"/>
+    <rect x="40" y="30" width="8" height="70" rx="4" fill="#ef4444"/>
+    <text x="65" y="60" fill="#ffffff" font-size="20" font-weight="700" font-family="'Segoe UI', -apple-system, sans-serif">Modular Kitchen</text>
+    <text x="65" y="82" fill="#94a3b8" font-size="13" font-family="'Segoe UI', -apple-system, sans-serif">Countertop, cabinets & fridge</text>
+  </g>
+
+  <!-- Tag Pill -->
+  <g>
+    <rect x="650" y="30" width="110" height="34" rx="17" fill="#1f2937"/>
+    <text x="705" y="52" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700" font-family="'Segoe UI', sans-serif">KITCHEN</text>
+  </g>
+</svg>

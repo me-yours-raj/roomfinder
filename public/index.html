@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/jpeg" href="/images/room-finder-logo.jpg">
+  <title>Room Finder — Find a Room That Feels Like Home in Bihar</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- HEADER & NAVIGATION -->
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="logo" href="/">
+          <img src="/images/room-finder-logo.jpg" alt="Room Finder Logo" class="brand-logo-img">
+          <span>Room Finder</span>
+        </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation menu">☰ Menu</button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/" class="active">Home</a>
+        <a href="/listings.html">Find Rooms</a>
+        <a href="/owner-form.html">List Your Property</a>
+        <span id="nav-auth"></span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Verified Accommodation Discovery &bull; Bihar</span>
+      </div>
+      <h1>Find a Room That <span class="hero-highlight">Feels Like Home</span></h1>
+      <p>Discover student rooms, paying guest (PG) accommodations, hostels, and flats across Patna, Gaya, Muzaffarpur, and all major cities in Bihar.</p>
+      
+      <!-- HERO SEARCH FORM -->
+      <form class="search-card hero-search-grid" action="/listings.html" method="get">
+        <div>
+          <label for="city">Location (City or Locality)</label>
+          <input id="city" name="city" placeholder="e.g. Boring Road, Patna">
+        </div>
+        <div>
+          <label for="type">Room Type</label>
+          <select id="type" name="type">
+            <option value="">All Categories</option>
+            <option value="single-room">Single Room</option>
+            <option value="shared-room">Shared Room</option>
+            <option value="pg">PG (Paying Guest)</option>
+            <option value="hostel">Hostel</option>
+            <option value="flat">Flat / Apartment</option>
+            <option value="1bhk">1 BHK</option>
+            <option value="2bhk">2 BHK</option>
+            <option value="roommate">Roommate</option>
+          </select>
+        </div>
+        <button class="btn btn-accent" type="submit" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Search Rooms</span>
+        </button>
+      </form>
+
+      <!-- QUICK CHIPS -->
+      <div class="hero-quick-chips">
+        <span>Popular:</span>
+        <a href="/listings.html?city=Patna">⚡ Patna</a>
+        <a href="/listings.html?city=Boring+Road">🎓 Boring Road</a>
+        <a href="/listings.html?city=Gaya">🏛️ Gaya</a>
+        <a href="/listings.html?type=pg">🍲 PG with Meals</a>
+        <a href="/listings.html?type=single-room">🛏️ Single Room</a>
+        <a href="/listings.html?type=1bhk">🏠 1 BHK Flat</a>
+      </div>
+
+      <!-- TRUST FEATURES -->
+      <div class="hero-features">
+        <div class="hero-feat"><span class="feat-icon">🔒</span> Direct Owner Contact</div>
+        <div class="hero-feat"><span class="feat-icon">⚡</span> Zero Brokerage Fees</div>
+        <div class="hero-feat"><span class="feat-icon">📍</span> Verified City Locations</div>
+        <div class="hero-feat"><span class="feat-icon">🎓</span> Student-Friendly Hostels &amp; PGs</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN HOMEPAGE CONTENT -->
+  <main class="page">
+    <div class="wrap">
+
+      <!-- ROOM CATEGORIES SECTION -->
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2>Explore by Room Category</h2>
+            <p class="section-subtitle">Choose from verified student rooms, hostels, private apartments, or shared spaces.</p>
+          </div>
+        </div>
+        <div class="category-grid">
+          <a class="category-card" href="/listings.html?type=single-room">
+            <div class="category-icon">🛏️</div>
+            <div>
+              <h3>Single Room</h3>
+              <p>Private independent rooms</p>
+            </div>
+          </a>
+          <a class="category-card" href="/listings.html?type=shared-room">
+            <div class="category-icon">👥</div>
+            <div>
+              <h3>Shared Room</h3>
+              <p>Twin & triple sharing</p>
+            </div>
+          </a>
+          <a class="category-card" href="/listings.html?type=pg">
+            <div class="category-icon">🍲</div>
+            <div>
+              <h3>PG (Paying Guest)</h3>
+              <p>Rooms with meals & upkeep</p>
+            </div>
+          </a>
+          <a class="category-card" href="/listings.html?type=hostel">
+            <div class="category-icon">🏢</div>
+            <div>
+              <h3>Hostel</h3>
+              <p>Student hostels with mess</p>
+            </div>
+          </a>
+          <a class="category-card" href="/listings.html?type=flat">
+            <div class="category-icon">🏠</div>
+            <div>
+              <h3>Flat / Apartment</h3>
+              <p>Independent living spaces</p>
+            </div>
+          </a>
+          <a class="category-card" href="/listings.html?type=1bhk">
+            <div class="category-icon">🚪</div>
+            <div>
+              <h3>1 BHK</h3>
+              <p>Compact 1-bedroom flat</p>
+            </div>
+          </a>
+          <a class="category-card" href="/listings.html?type=2bhk">
+            <div class="category-icon">🏡</div>
+            <div>
+              <h3>2 BHK</h3>
+              <p>Spacious 2-bedroom home</p>
+            </div>
+          </a>
+          <a class="category-card" href="/listings.html?type=roommate">
+            <div class="category-icon">🤝</div>
+            <div>
+              <h3>Roommate Wanted</h3>
+              <p>Connect with flatmates</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- FEATURED & RECENT LISTINGS -->
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2>Featured Accommodations</h2>
+            <p class="section-subtitle">Top curated demonstration listings and recent vacancies across Bihar.</p>
+          </div>
+          <a class="btn btn-secondary btn-sm" href="/listings.html">View All Listings &rarr;</a>
+        </div>
+        <div id="latest-listings" class="cards">
+          <p class="loading">Loading accommodations…</p>
+        </div>
+      </section>
+
+      <!-- POPULAR LOCATIONS IN BIHAR -->
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2>Popular Locations in Bihar</h2>
+            <p class="section-subtitle">Browse rental spaces near prime colleges, universities, and commercial hubs.</p>
+          </div>
+        </div>
+        <div id="city-tiles" class="location-grid">
+          <p class="loading">Loading popular cities…</p>
+        </div>
+      </section>
+
+      <!-- OWNER CALL TO ACTION BANNER -->
+      <section class="section">
+        <div class="owner-cta">
+          <div>
+            <h2>Are You a Property Owner in Bihar?</h2>
+            <p>List your room, PG, hostel, or flat on Room Finder today. Reach students, working professionals, and families looking for accommodation.</p>
+          </div>
+          <a class="btn btn-accent" href="/owner-form.html">List Your Property Free</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+    <!-- CONSISTENT FOOTER WITH REQUIRED SUPPORT DETAILS -->
+  <footer class="site-footer">
+    <!-- 1. TOP BRAND SECTION -->
+    <div class="wrap footer-brand-section">
+      <div class="footer-logo">
+        <img src="/images/room-finder-logo.jpg" alt="Room Finder Logo" class="footer-logo-img">
+        <div>
+          <span style="display: block; font-size: 1.65rem; font-weight: 850; color: #fff; line-height: 1.15;">Room Finder</span>
+          <span style="display: block; font-size: 0.88rem; color: #34d399; font-weight: 600; letter-spacing: 0.5px; margin-top: 0.2rem;">Find Your Perfect Room</span>
+        </div>
+      </div>
+      <p class="footer-tagline">Find a room that feels like home. Designed for students, job aspirants, and families searching for affordable rental accommodation in Bihar.</p>
+      <p class="footer-disclaimer"><em>Connecting students, job seekers, and families directly with verified room owners across Bihar.</em></p>
+    </div>
+
+    <!-- 2. POPULAR SEARCHES & RANDOM CITIES SECTION -->
+    <div class="wrap footer-searches">
+      <h4>🔍 Popular Searches &amp; Rooms Across Bihar</h4>
+      <div class="footer-searches-grid">
+        <a class="footer-search-tag" href="/listings.html?city=Patna">📍 Popular Rooms in Patna</a>
+        <a class="footer-search-tag" href="/listings.html?city=Gaya">📍 Popular Rooms in Gaya</a>
+        <a class="footer-search-tag" href="/listings.html?city=Muzaffarpur">📍 Popular Rooms in Muzaffarpur</a>
+        <a class="footer-search-tag" href="/listings.html?city=Bhagalpur">📍 Popular Rooms in Bhagalpur</a>
+        <a class="footer-search-tag" href="/listings.html?city=Darbhanga">📍 Popular Rooms in Darbhanga</a>
+        <a class="footer-search-tag" href="/listings.html?city=Purnia">📍 Popular Rooms in Purnia</a>
+        <a class="footer-search-tag" href="/listings.html?city=Bihar+Sharif">📍 Popular Rooms in Bihar Sharif</a>
+        <a class="footer-search-tag" href="/listings.html?city=Arrah">📍 Popular Rooms in Arrah</a>
+        <a class="footer-search-tag" href="/listings.html?city=Begusarai">📍 Popular Rooms in Begusarai</a>
+        <a class="footer-search-tag" href="/listings.html?city=Samastipur">📍 Popular Rooms in Samastipur</a>
+        <a class="footer-search-tag" href="/listings.html?city=Chhapra">📍 Popular Rooms in Chhapra</a>
+        <a class="footer-search-tag" href="/listings.html?city=Munger">📍 Popular Rooms in Munger</a>
+        <a class="footer-search-tag" href="/listings.html?city=Saharsa">📍 Popular Rooms in Saharsa</a>
+        <a class="footer-search-tag" href="/listings.html?city=Sasaram">📍 Popular Rooms in Sasaram</a>
+        <a class="footer-search-tag" href="/listings.html?city=Hajipur">📍 Popular Rooms in Hajipur</a>
+        <a class="footer-search-tag" href="/listings.html?city=Dehri">📍 Popular Rooms in Dehri</a>
+        <a class="footer-search-tag" href="/listings.html?city=Siwan">📍 Popular Rooms in Siwan</a>
+        <a class="footer-search-tag" href="/listings.html?city=Motihari">📍 Popular Rooms in Motihari</a>
+        <a class="footer-search-tag" href="/listings.html?city=Nawada">📍 Popular Rooms in Nawada</a>
+        <a class="footer-search-tag" href="/listings.html?city=Buxar">📍 Popular Rooms in Buxar</a>
+        <a class="footer-search-tag" href="/listings.html?city=Kishanganj">📍 Popular Rooms in Kishanganj</a>
+        <a class="footer-search-tag" href="/listings.html?city=Sitamarhi">📍 Popular Rooms in Sitamarhi</a>
+        <a class="footer-search-tag" href="/listings.html?city=Bettiah">📍 Popular Rooms in Bettiah</a>
+        <a class="footer-search-tag" href="/listings.html?city=Jehanabad">📍 Popular Rooms in Jehanabad</a>
+        <a class="footer-search-tag" href="/listings.html?city=Aurangabad">📍 Popular Rooms in Aurangabad</a>
+        <a class="footer-search-tag" href="/listings.html?city=Boring+Road">🎓 Popular Rooms in Boring Road</a>
+        <a class="footer-search-tag" href="/listings.html?city=Kankarbagh">🏡 Popular Rooms in Kankarbagh</a>
+        <a class="footer-search-tag" href="/listings.html?type=single-room">🛏️ Popular Single Rooms</a>
+        <a class="footer-search-tag" href="/listings.html?type=pg">🍲 Popular PGs with Mess</a>
+        <a class="footer-search-tag" href="/listings.html?type=hostel">🏢 Popular Student Hostels</a>
+        <a class="footer-search-tag" href="/listings.html?type=1bhk">🚪 Popular 1 BHK Rooms</a>
+        <a class="footer-search-tag" href="/listings.html?type=flat">🏠 Popular Flats for Rent</a>
+      </div>
+    </div>
+
+    <!-- 3. NAVIGATION LINKS & SUPPORT CONTACT (SABASE BOTTOM ME) -->
+    <div class="wrap footer-bottom-grid">
+      <div class="footer-col">
+        <h4>Navigation Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/listings.html">Find Rooms</a></li>
+          <li><a href="/owner-form.html">List Your Property</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/login.html">Login / Register</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col support-col">
+        <h4>Support Contact</h4>
+        <div class="support-item">
+          <!-- Instagram logo SVG -->
+          <svg class="support-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          <a href="https://www.instagram.com/me_yours_raj/" target="_blank" rel="noopener noreferrer">@me_yours_raj</a>
+        </div>
+
+        <div class="support-item">
+          <!-- Envelope icon SVG -->
+          <svg class="support-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <a href="mailto:dictatorhitler5@gmail.com">dictatorhitler5@gmail.com</a>
+        </div>
+        <p class="support-note">Location: Bihar, India</p>
+      </div>
+    </div>
+
+    <!-- COPYRIGHT BAR -->
+    <div class="wrap footer-bottom">
+      <p>&copy; 2026 Room Finder. All rights reserved. Bihar, India.</p>
+      <p><a href="/privacy-policy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/home.js"></script>
+</body>
+</html>

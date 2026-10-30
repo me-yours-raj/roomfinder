@@ -1,0 +1,41 @@
+{
+  "name": "room-finder",
+  "version": "1.0.0",
+  "description": "Room Finder — rental accommodation discovery platform for Bihar",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node src/scripts/generateDemoImages.js && node src/scripts/seedDemo.js",
+    "create-admin": "node src/scripts/createAdmin.js",
+    "test": "node tests/test-suite.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "room-finder",
+    "bihar",
+    "rentals",
+    "express",
+    "mongodb"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.41.3",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-rate-limit": "^7.4.1",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "leaflet": "^1.9.4",
+    "mongoose": "^8.8.1",
+    "multer": "^2.5.0",
+    "multer-storage-cloudinary": "^4.0.0",
+    "nodemailer": "^10.2.1"
+  }
+}

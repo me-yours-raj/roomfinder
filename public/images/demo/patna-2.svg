@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#efe4d4"/>
+  <rect x="80" y="90" width="640" height="320" fill="#c45c26"/>
+  <text x="400" y="230" text-anchor="middle" fill="#fff" font-size="36" font-family="Segoe UI, Arial">SAMPLE PG</text>
+  <text x="400" y="280" text-anchor="middle" fill="#fff6e8" font-size="22" font-family="Segoe UI, Arial">Patna · Kankarbagh</text>
+  <text x="400" y="320" text-anchor="middle" fill="#fff" font-size="16" font-family="Segoe UI, Arial">Demonstration data only</text>
+</svg>

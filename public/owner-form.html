@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/jpeg" href="/images/room-finder-logo.jpg">
+  <title>List Your Property — Room Finder Bihar</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="logo" href="/">
+          <img src="/images/room-finder-logo.jpg" alt="Room Finder Logo" class="brand-logo-img">
+          <span>Room Finder</span>
+        </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation menu">☰ Menu</button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/">Home</a>
+        <a href="/listings.html">Find Rooms</a>
+        <a href="/owner.html">My Listings</a>
+        <span id="nav-auth"></span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- FORM CONTAINER -->
+  <main class="page">
+    <div class="wrap">
+      <!-- POST ROOM HEADER BANNER -->
+      <div class="post-room-header">
+        <div class="post-room-badge">
+          <span class="badge-dot"></span>
+          <span>Verified Property Portal &bull; Bihar</span>
+        </div>
+        <h1 id="form-title">Post Your Rental Property</h1>
+        <p>List your room, PG, student hostel, or flat directly to verified students and tenants across Bihar with zero brokerage fees.</p>
+      </div>
+
+      <form id="listing-form" class="card wide-form post-room-card" enctype="multipart/form-data">
+        <div id="form-msg" class="hidden"></div>
+
+        <!-- 1. BASIC INFORMATION (Soft Mint Tint) -->
+        <div class="form-section-card section-tint-mint">
+          <div class="section-card-header">
+            <h3>1. Accommodation Essentials</h3>
+            <p class="help">Provide the title, rental category, and monthly budget for your listing.</p>
+          </div>
+
+          <div>
+            <label for="title">Listing Title *</label>
+            <input id="title" name="title" required minlength="5" maxlength="140" placeholder="e.g. Spacious Furnished Single Room near Boring Road">
+            <p class="help">Clear, informative title describing the room and locality (5–140 characters).</p>
+          </div>
+
+          <div class="grid-2" style="margin-top: 1rem;">
+            <div>
+              <label for="type">Room Category *</label>
+              <select id="type" name="type" required></select>
+            </div>
+            <div>
+              <label for="monthlyRent">Monthly Rent in INR (₹) *</label>
+              <input id="monthlyRent" name="monthlyRent" type="number" min="500" max="500000" required placeholder="e.g. 6500">
+            </div>
+          </div>
+
+          <div class="grid-2" style="margin-top: 1rem;">
+            <div>
+              <label for="deposit">Security Deposit (₹)</label>
+              <input id="deposit" name="deposit" type="number" min="0" max="1000000" placeholder="0 if zero deposit">
+            </div>
+            <div>
+              <label for="availabilityDate">Available From Date</label>
+              <input id="availabilityDate" name="availabilityDate" type="date">
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. LOCATION DETAILS (Soft Cream Tint) -->
+        <div class="form-section-card section-tint-cream">
+          <div class="section-card-header">
+            <h3>2. Location &amp; Address in Bihar</h3>
+            <p class="help">Specify where your property is situated so seekers can easily find it.</p>
+          </div>
+
+          <div class="grid-3">
+            <div>
+              <label for="state">State</label>
+              <input id="state" name="state" value="Bihar" readonly style="background: var(--surface-alt); font-weight: 600;">
+            </div>
+            <div>
+              <label for="city">City / District *</label>
+              <input id="city" name="city" required maxlength="80" placeholder="e.g. Patna" list="bihar-cities">
+              <datalist id="bihar-cities">
+                <option value="Patna">
+                <option value="Gaya">
+                <option value="Muzaffarpur">
+                <option value="Bhagalpur">
+                <option value="Darbhanga">
+                <option value="Purnia">
+                <option value="Begusarai">
+                <option value="Arrah">
+              </datalist>
+            </div>
+            <div>
+              <label for="locality">Locality / Area *</label>
+              <input id="locality" name="locality" required maxlength="80" placeholder="e.g. Boring Road">
+            </div>
+          </div>
+
+          <div style="margin-top: 1rem;">
+            <label for="address">Full Street Address (Optional)</label>
+            <input id="address" name="address" maxlength="250" placeholder="e.g. Plot 42, Lane 3, Opposite AN College">
+          </div>
+
+          <div class="grid-2" style="margin-top: 1rem;">
+            <div>
+              <label for="lat">Latitude (Optional for Map)</label>
+              <input id="lat" name="lat" type="number" step="any" min="-90" max="90" placeholder="e.g. 25.6139">
+            </div>
+            <div>
+              <label for="lng">Longitude (Optional for Map)</label>
+              <input id="lng" name="lng" type="number" step="any" min="-180" max="180" placeholder="e.g. 85.1186">
+            </div>
+          </div>
+          <p class="help" style="margin-top: 0.4rem;">Used to display an interactive location map marker on the room page (e.g. Patna center is ~25.61, 85.12).</p>
+        </div>
+
+        <!-- 3. SPECIFICATIONS & AMENITIES (Soft Blue Mist Tint) -->
+        <div class="form-section-card section-tint-blue">
+          <div class="section-card-header">
+            <h3>3. Room Specifications &amp; Amenities</h3>
+            <p class="help">Detail the furnishing, meal facilities, washroom type, and tenant rules.</p>
+          </div>
+
+          <div class="grid-2">
+            <div>
+              <label for="furnishingStatus">Furnishing Status</label>
+              <select id="furnishingStatus" name="furnishingStatus">
+                <option value="Furnished">Furnished</option>
+                <option value="Semi-Furnished" selected>Semi-Furnished</option>
+                <option value="Unfurnished">Unfurnished</option>
+              </select>
+            </div>
+            <div>
+              <label for="foodAvailability">Food Availability</label>
+              <select id="foodAvailability" name="foodAvailability">
+                <option value="None" selected>None / No food</option>
+                <option value="Mess Included">Mess Included (Breakfast &amp; Dinner)</option>
+                <option value="Self Cooking Allowed">Self Cooking Allowed</option>
+                <option value="Veg Only">Veg Meals Only</option>
+                <option value="Both Veg &amp; Non-Veg">Both Veg &amp; Non-Veg Allowed</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid-2" style="margin-top: 1rem;">
+            <div>
+              <label for="bathroomDetails">Bathroom Type</label>
+              <select id="bathroomDetails" name="bathroomDetails">
+                <option value="Attached" selected>Attached Washroom</option>
+                <option value="Shared">Shared Washroom</option>
+              </select>
+            </div>
+            <div>
+              <label for="tenantPreference">Tenant Preference</label>
+              <select id="tenantPreference" name="tenantPreference">
+                <option value="Any / All" selected>Any / All tenants</option>
+                <option value="Boys Only">Boys Only</option>
+                <option value="Girls Only">Girls Only</option>
+                <option value="Family Only">Family Only</option>
+                <option value="Students Only">Students Only</option>
+                <option value="Working Professionals">Working Professionals</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid-2" style="margin-top: 1rem;">
+            <div>
+              <label for="occupancy">Occupancy</label>
+              <input id="occupancy" name="occupancy" maxlength="80" placeholder="e.g. Single occupant or 2 sharing">
+            </div>
+            <div>
+              <label for="contactNumber">Owner Contact Mobile Number *</label>
+              <input id="contactNumber" name="contactNumber" required maxlength="10" placeholder="10-digit mobile number">
+            </div>
+          </div>
+
+          <div style="margin-top: 1.2rem;">
+            <label style="font-size: 0.95rem; margin-bottom: 0.6rem;">Amenities &amp; Facilities Available</label>
+            <div id="facilities" class="check-grid"></div>
+          </div>
+        </div>
+
+        <!-- 4. DETAILED PROPERTY DESCRIPTION (OPTIONAL) (Soft Neutral Tint) -->
+        <div class="form-section-card section-tint-lavender">
+          <div class="section-card-header">
+            <h3>4. Detailed Property Description (Optional)</h3>
+            <p class="help">You can optionally write additional details about the room, study atmosphere, or house rules.</p>
+          </div>
+
+          <div>
+            <textarea id="description" name="description" maxlength="3000" rows="4" placeholder="Optional: Describe the room, furniture, lighting, nearby transport, colleges, study atmosphere, and house rules…"></textarea>
+          </div>
+        </div>
+
+        <!-- 5. PROPERTY PHOTOS (WITH ADD MORE BUTTON) (Soft Slate Tint) -->
+        <div class="form-section-card section-tint-rose">
+          <div class="section-card-header">
+            <h3>5. Property Photos (1 to 4 photos) *</h3>
+            <p class="help">Allowed file types: JPG, PNG, WEBP. Maximum 2 MB per photo.</p>
+          </div>
+
+          <!-- Live Selected Photo Previews -->
+          <div id="photo-previews" class="photo-preview-grid"></div>
+
+          <!-- Existing Photos (when editing) -->
+          <div id="existing-photos"></div>
+
+          <div class="photo-upload-bar">
+            <input id="photo-input" type="file" accept="image/jpeg,image/png,image/webp" multiple class="photo-native-input">
+            <button type="button" class="btn btn-secondary btn-sm" id="add-more-photos-btn">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>+ Add More Photos</span>
+            </button>
+            <span class="photo-count-hint" id="photo-count-badge">0 / 4 photos selected</span>
+          </div>
+        </div>
+
+        <!-- SUBMISSION BUTTONS -->
+        <div class="form-actions" style="margin-top: 1.8rem; display: flex; gap: 0.85rem; align-items: center; flex-wrap: wrap;">
+          <button class="btn btn-primary" type="submit" id="submit-btn">Save &amp; Publish Listing</button>
+          <button class="btn btn-secondary" type="button" id="cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+    <!-- CONSISTENT FOOTER WITH REQUIRED SUPPORT DETAILS -->
+  <footer class="site-footer">
+    <!-- 1. TOP BRAND SECTION -->
+    <div class="wrap footer-brand-section">
+      <div class="footer-logo">
+        <img src="/images/room-finder-logo.jpg" alt="Room Finder Logo" class="footer-logo-img">
+        <div>
+          <span style="display: block; font-size: 1.65rem; font-weight: 850; color: #fff; line-height: 1.15;">Room Finder</span>
+          <span style="display: block; font-size: 0.88rem; color: #34d399; font-weight: 600; letter-spacing: 0.5px; margin-top: 0.2rem;">Find Your Perfect Room</span>
+        </div>
+      </div>
+      <p class="footer-tagline">Find a room that feels like home. Designed for students, job aspirants, and families searching for affordable rental accommodation in Bihar.</p>
+      <p class="footer-disclaimer"><em>Connecting students, job seekers, and families directly with verified room owners across Bihar.</em></p>
+    </div>
+
+    <!-- 2. POPULAR SEARCHES & RANDOM CITIES SECTION -->
+    <div class="wrap footer-searches">
+      <h4>🔍 Popular Searches &amp; Rooms Across Bihar</h4>
+      <div class="footer-searches-grid">
+        <a class="footer-search-tag" href="/listings.html?city=Patna">📍 Popular Rooms in Patna</a>
+        <a class="footer-search-tag" href="/listings.html?city=Gaya">📍 Popular Rooms in Gaya</a>
+        <a class="footer-search-tag" href="/listings.html?city=Muzaffarpur">📍 Popular Rooms in Muzaffarpur</a>
+        <a class="footer-search-tag" href="/listings.html?city=Bhagalpur">📍 Popular Rooms in Bhagalpur</a>
+        <a class="footer-search-tag" href="/listings.html?city=Darbhanga">📍 Popular Rooms in Darbhanga</a>
+        <a class="footer-search-tag" href="/listings.html?city=Purnia">📍 Popular Rooms in Purnia</a>
+        <a class="footer-search-tag" href="/listings.html?city=Bihar+Sharif">📍 Popular Rooms in Bihar Sharif</a>
+        <a class="footer-search-tag" href="/listings.html?city=Arrah">📍 Popular Rooms in Arrah</a>
+        <a class="footer-search-tag" href="/listings.html?city=Begusarai">📍 Popular Rooms in Begusarai</a>
+        <a class="footer-search-tag" href="/listings.html?city=Samastipur">📍 Popular Rooms in Samastipur</a>
+        <a class="footer-search-tag" href="/listings.html?city=Chhapra">📍 Popular Rooms in Chhapra</a>
+        <a class="footer-search-tag" href="/listings.html?city=Munger">📍 Popular Rooms in Munger</a>
+        <a class="footer-search-tag" href="/listings.html?city=Saharsa">📍 Popular Rooms in Saharsa</a>
+        <a class="footer-search-tag" href="/listings.html?city=Sasaram">📍 Popular Rooms in Sasaram</a>
+        <a class="footer-search-tag" href="/listings.html?city=Hajipur">📍 Popular Rooms in Hajipur</a>
+        <a class="footer-search-tag" href="/listings.html?city=Dehri">📍 Popular Rooms in Dehri</a>
+        <a class="footer-search-tag" href="/listings.html?city=Siwan">📍 Popular Rooms in Siwan</a>
+        <a class="footer-search-tag" href="/listings.html?city=Motihari">📍 Popular Rooms in Motihari</a>
+        <a class="footer-search-tag" href="/listings.html?city=Nawada">📍 Popular Rooms in Nawada</a>
+        <a class="footer-search-tag" href="/listings.html?city=Buxar">📍 Popular Rooms in Buxar</a>
+        <a class="footer-search-tag" href="/listings.html?city=Kishanganj">📍 Popular Rooms in Kishanganj</a>
+        <a class="footer-search-tag" href="/listings.html?city=Sitamarhi">📍 Popular Rooms in Sitamarhi</a>
+        <a class="footer-search-tag" href="/listings.html?city=Bettiah">📍 Popular Rooms in Bettiah</a>
+        <a class="footer-search-tag" href="/listings.html?city=Jehanabad">📍 Popular Rooms in Jehanabad</a>
+        <a class="footer-search-tag" href="/listings.html?city=Aurangabad">📍 Popular Rooms in Aurangabad</a>
+        <a class="footer-search-tag" href="/listings.html?city=Boring+Road">🎓 Popular Rooms in Boring Road</a>
+        <a class="footer-search-tag" href="/listings.html?city=Kankarbagh">🏡 Popular Rooms in Kankarbagh</a>
+        <a class="footer-search-tag" href="/listings.html?type=single-room">🛏️ Popular Single Rooms</a>
+        <a class="footer-search-tag" href="/listings.html?type=pg">🍲 Popular PGs with Mess</a>
+        <a class="footer-search-tag" href="/listings.html?type=hostel">🏢 Popular Student Hostels</a>
+        <a class="footer-search-tag" href="/listings.html?type=1bhk">🚪 Popular 1 BHK Rooms</a>
+        <a class="footer-search-tag" href="/listings.html?type=flat">🏠 Popular Flats for Rent</a>
+      </div>
+    </div>
+
+    <!-- 3. NAVIGATION LINKS & SUPPORT CONTACT (SABASE BOTTOM ME) -->
+    <div class="wrap footer-bottom-grid">
+      <div class="footer-col">
+        <h4>Navigation Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/listings.html">Find Rooms</a></li>
+          <li><a href="/owner-form.html">List Your Property</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/login.html">Login / Register</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col support-col">
+        <h4>Support Contact</h4>
+        <div class="support-item">
+          <!-- Instagram logo SVG -->
+          <svg class="support-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          <a href="https://www.instagram.com/me_yours_raj/" target="_blank" rel="noopener noreferrer">@me_yours_raj</a>
+        </div>
+
+        <div class="support-item">
+          <!-- Envelope icon SVG -->
+          <svg class="support-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <a href="mailto:dictatorhitler5@gmail.com">dictatorhitler5@gmail.com</a>
+        </div>
+        <p class="support-note">Location: Bihar, India</p>
+      </div>
+    </div>
+
+    <!-- COPYRIGHT BAR -->
+    <div class="wrap footer-bottom">
+      <p>&copy; 2026 Room Finder. All rights reserved. Bihar, India.</p>
+      <p><a href="/privacy-policy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/owner-form.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background Wall & Floor -->
+  <rect width="800" height="400" fill="url(#bgGrad)"/>
+  <rect y="400" width="800" height="100" fill="#94a3b8"/>
+  <line x1="0" y1="400" x2="800" y2="400" stroke="#64748b" stroke-width="4"/>
+
+  <!-- Interior Elements -->
+  
+      <!-- Bookshelf full wall -->
+      <rect x="80" y="80" width="260" height="320" rx="6" fill="#78350f" stroke="#451a03" stroke-width="4"/>
+      <line x1="80" y1="150" x2="340" y2="150" stroke="#451a03" stroke-width="4"/>
+      <line x1="80" y1="230" x2="340" y2="230" stroke="#451a03" stroke-width="4"/>
+      <line x1="80" y1="310" x2="340" y2="310" stroke="#451a03" stroke-width="4"/>
+      <!-- Books -->
+      <rect x="100" y="105" width="20" height="45" fill="#e11d48"/>
+      <rect x="122" y="95" width="25" height="55" fill="#2563eb"/>
+      <rect x="150" y="110" width="30" height="40" fill="#059669"/>
+      <rect x="200" y="180" width="22" height="50" fill="#d97706"/>
+      <rect x="225" y="175" width="28" height="55" fill="#78350f"/>
+
+      <!-- Study Desk Center -->
+      <rect x="420" y="270" width="280" height="20" rx="4" fill="#92400e"/>
+      <rect x="440" y="290" width="16" height="110" fill="#78350f"/>
+      <rect x="665" y="290" width="16" height="110" fill="#78350f"/>
+      <!-- Desktop Screen -->
+      <rect x="520" y="175" width="90" height="65" rx="4" fill="#1e293b"/>
+      <rect x="525" y="180" width="80" height="50" fill="#38bdf8"/>
+      <rect x="557" y="240" width="16" height="30" fill="#64748b"/>
+      <rect x="545" y="267" width="40" height="4" rx="2" fill="#64748b"/>
+      <!-- Study Chair -->
+      <rect x="525" y="290" width="80" height="60" rx="10" fill="#2563eb"/>
+      <rect x="555" y="350" width="20" height="55" fill="#1e293b"/>
+    
+
+  <!-- Top Title Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="30" width="360" height="70" rx="12" fill="#0f242a" opacity="0.9"/>
+    <rect x="40" y="30" width="8" height="70" rx="4" fill="#2563eb"/>
+    <text x="65" y="60" fill="#ffffff" font-size="20" font-weight="700" font-family="'Segoe UI', -apple-system, sans-serif">Private Study Room</text>
+    <text x="65" y="82" fill="#94a3b8" font-size="13" font-family="'Segoe UI', -apple-system, sans-serif">Computer desk, chair & shelves</text>
+  </g>
+
+  <!-- Tag Pill -->
+  <g>
+    <rect x="650" y="30" width="110" height="34" rx="17" fill="#78350f"/>
+    <text x="705" y="52" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700" font-family="'Segoe UI', sans-serif">STUDY</text>
+  </g>
+</svg>
