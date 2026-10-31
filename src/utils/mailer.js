@@ -4,7 +4,11 @@ const { config } = require("../config/env");
 let transporter = null;
 
 function isConfigured() {
-  return Boolean(config.smtp.user && config.smtp.pass);
+  return Boolean(
+    process.env.BREVO_API_KEY ||
+    process.env.RESEND_API_KEY ||
+    (config.smtp.user && config.smtp.pass)
+  );
 }
 
 function getTransporter() {
@@ -52,6 +56,78 @@ function getSenderAddress() {
  * NOTE: As per project security standards, OTP codes and passwords are NEVER logged to console.
  */
 async function sendMail({ to, subject, text, html }) {
+  // 1. Brevo (Sendinblue) REST API via HTTPS (Port 443)
+  // No custom domain required; bypasses Render Free Tier outbound SMTP port restrictions!
+  const brevoApiKey = process.env.BREVO_API_KEY;
+  if (brevoApiKey) {
+    try {
+      const senderEmail = process.env.BREVO_SENDER_EMAIL || process.env.SMTP_USER || config.smtp.user || "noreply@roomfinder.bihar";
+      const senderName = process.env.BREVO_SENDER_NAME || "Room Finder Bihar";
+
+      const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+        method: "POST",
+        headers: {
+          "accept": "application/json",
+          "api-key": brevoApiKey.trim(),
+          "content-type": "application/json"
+        },
+        body: JSON.stringify({
+          sender: {
+            name: senderName,
+            email: senderEmail.trim()
+          },
+          to: [{ email: to.trim() }],
+          subject,
+          htmlContent: html,
+          textContent: text
+        })
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || JSON.stringify(data));
+      }
+      console.log(`[Mailer:Brevo] Email delivered to ${to} (MessageId: ${data.messageId})`);
+      return { sent: true, messageId: data.messageId };
+    } catch (brevoError) {
+      console.error(`[Mailer:Brevo] Error sending email to ${to}:`, brevoError.message);
+      return { sent: false, error: brevoError.message };
+    }
+  }
+
+  // 2. Resend API via standard HTTPS (Port 443)
+  // Bypasses cloud host outbound SMTP port restrictions (e.g. Render Free Tier)
+  const resendApiKey = process.env.RESEND_API_KEY;
+  if (resendApiKey) {
+    try {
+      const fromAddress = process.env.RESEND_FROM || "Room Finder <onboarding@resend.dev>";
+      const response = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${resendApiKey}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          from: fromAddress,
+          to: [to],
+          subject,
+          text,
+          html
+        })
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || JSON.stringify(data));
+      }
+      console.log(`[Mailer:Resend] Email delivered to ${to} (ID: ${data.id})`);
+      return { sent: true, messageId: data.id };
+    } catch (resendError) {
+      console.error(`[Mailer:Resend] Error sending email to ${to}:`, resendError.message);
+      return { sent: false, error: resendError.message };
+    }
+  }
+
+  // 3. Standard Nodemailer SMTP (Local development & servers with open SMTP ports)
   const mailClient = getTransporter();
 
   if (!mailClient) {

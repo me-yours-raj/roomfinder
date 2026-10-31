@@ -12,6 +12,9 @@ const metaRoutes = require("./src/routes/meta");
 
 const app = express();
 
+// Enable trust proxy for cloud platforms (Render, Vercel, Heroku) behind reverse proxies
+app.set("trust proxy", 1);
+
 app.disable("x-powered-by");
 app.use(
   helmet({
