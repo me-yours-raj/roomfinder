@@ -95,6 +95,14 @@
           '</section>';
       }
 
+      // WhatsApp link preparation
+      const rawNumber = String(p.contactNumber || "").replace(/\D/g, "");
+      const waDigits = rawNumber.length === 10 ? "91" + rawNumber : rawNumber;
+      const waText = encodeURIComponent(
+        'नमस्ते! मैंने Room Finder पर आपका कमरा "' + (p.title || "") + '" देखा (' + (p.locality || "") + ", " + (p.city || "") + ')। क्या यह अभी उपलब्ध है?'
+      );
+      const waUrl = "https://wa.me/" + waDigits + "?text=" + waText;
+
       root.innerHTML =
         demoBanner +
         '<div class="detail-grid">' +
@@ -215,10 +223,28 @@
               '</div>' +
             '</div>' +
 
-            '<button class="btn btn-primary" type="button" id="copy-contact" style="width: 100%; margin-bottom: 0.6rem;">📋 Copy Contact Number</button>' +
-            '<div id="copy-msg" class="hidden"></div>' +
+            '<a class="btn btn-whatsapp" href="' + waUrl + '" target="_blank" rel="noopener noreferrer" style="width: 100%; margin-bottom: 0.65rem;">' +
+              '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">' +
+                '<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm.01 18.08c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.04 8.04 0 0 1-1.24-4.31c0-4.47 3.64-8.11 8.12-8.11 2.17 0 4.21.85 5.74 2.38a8.07 8.07 0 0 1 2.38 5.73c0 4.47-3.64 8.11-8.12 8.11zm4.45-6.07c-.24-.12-1.44-.71-1.66-.79-.23-.08-.39-.12-.56.12-.17.24-.64.79-.79.95-.14.16-.29.18-.54.06-.24-.12-1.03-.38-1.96-1.21-.72-.64-1.21-1.44-1.35-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.29.37-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.76-1.85-.2-.49-.4-.42-.56-.43h-.47c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.56c.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.53.59.19 1.14.16 1.56.1.48-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28z"/>' +
+              '</svg>' +
+              'Chat on WhatsApp' +
+            '</a>' +
 
-            '<a class="btn btn-secondary" href="tel:' + encodeURIComponent(p.contactNumber) + '" style="width: 100%;">📞 Call Property Owner</a>' +
+            '<a class="btn btn-primary" href="tel:' + encodeURIComponent(p.contactNumber) + '" style="width: 100%; margin-bottom: 0.65rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;">' +
+              '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+                '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>' +
+              '</svg>' +
+              'Call Property Owner' +
+            '</a>' +
+
+            '<button class="btn btn-secondary" type="button" id="copy-contact" style="width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;">' +
+              '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+                '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>' +
+                '<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>' +
+              '</svg>' +
+              'Copy Contact Number' +
+            '</button>' +
+            '<div id="copy-msg" class="hidden" style="margin-top: 0.5rem;"></div>' +
 
             (isDemo
               ? '<p class="help" style="margin-top: 0.8rem; text-align: center;">Sample demonstration contact number.</p>'

@@ -35,7 +35,7 @@ This document provides an honest, verifiable accounting of all implemented featu
   - Clear demonstration location disclaimer.
 - [x] **Consistent Footer on All Pages**:
   - Instagram handle `@me_yours_raj` linked to `https://www.instagram.com/me_yours_raj/`.
-  - Support email `dictatorhitler5@gmail.com` linked via `mailto:`.
+  - Support email `ankit20270raj@gmail.com` linked via `mailto:`.
   - Clickable link to Privacy Policy page.
   - Copyright and project affiliation.
 - [x] **Privacy Policy (`privacy-policy.html`)**:

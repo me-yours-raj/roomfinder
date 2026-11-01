@@ -21,8 +21,22 @@
     const authSlot = document.getElementById("nav-auth");
     if (!authSlot) return;
 
+    // Clean up any static role-specific links outside authSlot to eliminate duplicates
+    const navLinks = document.getElementById("nav-links");
+    if (navLinks) {
+      const staticRoleLinks = navLinks.querySelectorAll(
+        "a[href*='owner.html'], a[href*='owner-form.html'], a[href*='admin.html']"
+      );
+      staticRoleLinks.forEach(function (link) {
+        if (!link.closest("#nav-auth")) {
+          link.remove();
+        }
+      });
+    }
+
     if (!user) {
       authSlot.innerHTML =
+        '<a href="/owner-form.html">List Your Property</a>' +
         '<a class="btn btn-secondary btn-sm nav-login-btn" href="/login.html">Login</a>';
     } else {
       let linksHtml = "";
@@ -37,6 +51,7 @@
       } else {
         // student / tenant
         linksHtml =
+          '<a href="/owner-form.html">List Your Property</a>' +
           '<a href="/profile.html">My Profile</a>';
       }
 
@@ -60,6 +75,62 @@
     // Attach dynamic click/press feedback to all interactive navbar elements (including Login and Register)
     bindNavbarPressEffects();
     highlightActiveNavLink();
+  }
+
+  // ==========================================================================
+  // COOKIE NOTIFICATION BANNER
+  // ==========================================================================
+  function initCookieBanner() {
+    try {
+      if (localStorage.getItem("rf_cookie_consent") === "acknowledged") {
+        return;
+      }
+    } catch (e) {
+      // Ignore localStorage exceptions in private browsing or restricted environments
+    }
+
+    if (document.getElementById("rf-cookie-banner")) return;
+
+    const banner = document.createElement("div");
+    banner.id = "rf-cookie-banner";
+    banner.className = "rf-cookie-banner";
+    banner.setAttribute("role", "region");
+    banner.setAttribute("aria-label", "Cookie and Privacy Notice");
+    banner.innerHTML =
+      '<div class="rf-cookie-content">' +
+        '<span class="rf-cookie-icon" aria-hidden="true">🍪</span>' +
+        '<div class="rf-cookie-text">' +
+          '<strong>Cookie &amp; Privacy Notice:</strong> We use strictly essential cookies for secure login and account protection. We do not use advertising or tracking cookies. Learn more in our <a href="/cookie-policy.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.' +
+        '</div>' +
+      '</div>' +
+      '<div class="rf-cookie-actions">' +
+        '<button type="button" class="btn btn-primary" id="rf-cookie-accept">Got it</button>' +
+      '</div>';
+
+    document.body.appendChild(banner);
+
+    const acceptBtn = banner.querySelector("#rf-cookie-accept");
+    if (acceptBtn) {
+      acceptBtn.addEventListener("click", function () {
+        try {
+          localStorage.setItem("rf_cookie_consent", "acknowledged");
+        } catch (e) {}
+        banner.style.transition = "opacity 0.25s ease, transform 0.25s ease";
+        banner.style.opacity = "0";
+        banner.style.transform = "translate(-50%, 20px)";
+        setTimeout(function () {
+          if (banner.parentNode) banner.parentNode.removeChild(banner);
+        }, 260);
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      setTimeout(initCookieBanner, 400);
+    });
+  } else {
+    setTimeout(initCookieBanner, 400);
   }
 
   // Confirm logout modal dialog asking the user to confirm that they really want to log out

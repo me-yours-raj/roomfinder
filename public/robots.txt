@@ -1,0 +1,23 @@
+# Robots.txt for Room Finder Bihar
+# https://roomfinder-p6tc.onrender.com
+
+User-agent: *
+Allow: /
+Allow: /listings.html
+Allow: /listing.html
+Allow: /owner-form.html
+Allow: /privacy-policy.html
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Disallow private user & administrator dashboards
+Disallow: /admin.html
+Disallow: /admin-login.html
+Disallow: /owner.html
+Disallow: /profile.html
+Disallow: /reset-password.html
+Disallow: /forgot-password.html
+Disallow: /api/admin/
+
+Sitemap: https://roomfinder-p6tc.onrender.com/sitemap.xml

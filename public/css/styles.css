@@ -447,6 +447,42 @@ p {
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15) !important;
 }
 
+/* WhatsApp Direct Chat Button */
+.btn-whatsapp {
+  background: #25d366;
+  border: 1.5px solid #20ba5a;
+  color: #ffffff !important;
+  font-weight: 750;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.32);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-whatsapp svg {
+  flex-shrink: 0;
+}
+
+.btn-whatsapp:hover {
+  background: #1eb857;
+  border-color: #1a9e4b;
+  color: #ffffff !important;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.42);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.btn-whatsapp:active,
+.btn-whatsapp.is-pressed {
+  background: #178a42 !important;
+  border-color: #178a42 !important;
+  color: #ffffff !important;
+  transform: scale(0.96);
+}
+
 /* Ghost Button (e.g. Reset, Log out, Cancel) */
 .btn-ghost {
   background: #ffffff;
@@ -2829,5 +2865,124 @@ tr:hover td {
   .profile-actions-bar {
     flex-direction: column;
     align-items: stretch;
+  }
+}
+
+
+/* ==========================================================================
+   COOKIE NOTIFICATION BANNER
+   ========================================================================== */
+
+.rf-cookie-banner {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2.5rem);
+  max-width: 860px;
+  background: #091316;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 14px;
+  padding: 0.95rem 1.35rem;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  color: #e2e8f0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  animation: rfSlideUp 0.35s ease-out;
+}
+
+@keyframes rfSlideUp {
+  from {
+    transform: translate(-50%, 40px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+.rf-cookie-banner.hidden {
+  display: none !important;
+}
+
+.rf-cookie-content {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex: 1;
+}
+
+.rf-cookie-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.rf-cookie-text {
+  color: #cbd5e1;
+}
+
+.rf-cookie-text strong {
+  color: #ffffff;
+}
+
+.rf-cookie-text a {
+  color: #34d399;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.rf-cookie-text a:hover {
+  color: #6ee7b7;
+}
+
+.rf-cookie-actions {
+  flex-shrink: 0;
+}
+
+.rf-cookie-actions .btn {
+  padding: 0.45rem 1.15rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background: #10b981;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.rf-cookie-actions .btn:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .rf-cookie-banner {
+    bottom: 0.85rem;
+    width: calc(100% - 1.5rem);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 1.15rem;
+    gap: 0.9rem;
+  }
+  .rf-cookie-content {
+    align-items: flex-start;
+  }
+  .rf-cookie-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .rf-cookie-actions .btn {
+    width: 100%;
+    padding: 0.65rem;
+    text-align: center;
   }
 }

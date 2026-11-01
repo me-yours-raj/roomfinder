@@ -274,7 +274,7 @@ The project includes dedicated documentation in the `DOCUMENTATION/` directory:
 For project evaluations, viva questions, or technical inquiries:
 
 - **Instagram**: [@me_yours_raj](https://www.instagram.com/me_yours_raj/)
-- **Email**: [dictatorhitler5@gmail.com](mailto:dictatorhitler5@gmail.com)
+- **Email**: [ankit20270raj@gmail.com](mailto:ankit20270raj@gmail.com)
 - **Platform**: Room Finder Rental Accommodation &bull; Bihar, India
 
 ---
